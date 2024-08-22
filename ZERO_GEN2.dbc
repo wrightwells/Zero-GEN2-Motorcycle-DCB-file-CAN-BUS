@@ -72,9 +72,9 @@ BO_ 904 BMS_CELL_VOLTAGE: 0 ZeroGen2
 BO_ 905 BMS1_CELL_VOLTAGE: 0 ZeroGen2
 
 BO_ 1032 BMS_PACK_ACTIVE_DATA: 0 ZeroGen2
-   SG_ batteryAmps : 39|8@0+ (1,0) [0|1] "" ZeroGen2
+   SG_ batteryAmps : 39|16@0+ (1,0) [0|1] "" Vector__XXX
    SG_ temperatureMax : 15|8@0+ (1,0) [0|1] "" ZeroGen2
-   SG_ temperatureMin : 23|8@0+ (1,0) [0|1] "" ZeroGen2
+   SG_ temperatureMin : 23|8@0+ (1,0) [0|1] "" Vector__XXX
 
 BO_ 1033 BMS1_PACK_ACTIVE_DATA: 0 ZeroGen2
 
@@ -97,10 +97,10 @@ BA_DEF_ BO_ "matchingcriteria" INT 0 0;
 BA_DEF_ BO_ "filterlabeling" INT 0 0;
 BA_DEF_ BO_ "matchingcriteria" INT 0 0;
 BA_DEF_ BO_ "filterlabeling" INT 0 0;
+BA_DEF_ BO_ "matchingcriteria" INT 0 0;
+BA_DEF_ BO_ "filterlabeling" INT 0 0;
+BA_DEF_ BO_ "matchingcriteria" INT 0 0;
+BA_DEF_ BO_ "filterlabeling" INT 0 0;
 BA_DEF_DEF_ "GenMsgBackgroundColor" "#ffffff";
 BA_DEF_DEF_ "GenMsgForegroundColor" "#000000";
-BA_DEF_DEF_ "matchingcriteria" 0;
-BA_DEF_DEF_ "filterlabeling" 0;
-BA_DEF_DEF_ "matchingcriteria" 0;
-BA_DEF_DEF_ "filterlabeling" false;
-CM_ BU_ ZeroGen2 "Default node if none specified";
+BA_DEF_DEF_ "matchingcri

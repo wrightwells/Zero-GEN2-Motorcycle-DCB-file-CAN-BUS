@@ -48,7 +48,7 @@ BO_ 704 ODO_FROM_DASH: 0 ZeroGen2
 BO_ 517 CONTROLLER_DRIVE_CONTROL: 0 ZeroGen2
 
 BO_ 576 BMS_SOC_STATUS: 7 ZeroGen2
-   SG_ battery_SOC : 6|1@1+ (1,0) [0|1] "" ZeroGen2
+   SG_ battery_SOC : 55|8@0+ (1,0) [0|1] "" ZeroGen2
 
 BO_ 648 CONTROLLER_RPM_THROTTLE_MOT_TEMP: 0 ZeroGen2
    SG_ throttleVoltage : 39|16@0+ (1,0) [0|1] "" ZeroGen2
@@ -103,4 +103,4 @@ BA_DEF_ BO_ "matchingcriteria" INT 0 0;
 BA_DEF_ BO_ "filterlabeling" INT 0 0;
 BA_DEF_DEF_ "GenMsgBackgroundColor" "#ffffff";
 BA_DEF_DEF_ "GenMsgForegroundColor" "#000000";
-BA_DEF_DEF_ "matchingcri
+BA_DEF_DEF_ "matchingcr

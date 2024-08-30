@@ -44,9 +44,9 @@ BO_ 448 DASH_STATUS: 0 ZeroGen2
 BO_ 385 CONTROLLER_SPEED_TORQUE: 0 ZeroGen2
 
 BO_ 392 BMS_PACK_STATUS: 0 ZeroGen2
-   SG_ ChargeCycle3 : 31|8@0+ (0.256,0) [0|1] "" Vector__XXX
-   SG_ ChargeCycle4 : 39|8@0+ (0.256,0) [0|1] "" Vector__XXX
-   SG_ CellBalance : 47|8@0+ (0.256,0) [0|1] "" Vector__XXX
+   SG_ ChargeCycle3 : 31|8@0+ (0,0) [0|1] "" Vector__XXX
+   SG_ ChargeCycle4 : 39|8@0+ (0,0) [0|1] "" Vector__XXX
+   SG_ CellBalance : 47|8@0+ (0,0) [0|1] "" Vector__XXX
 
 BO_ 402 PACK_STATUS2: 0 ZeroGen2
 
@@ -59,6 +59,7 @@ BO_ 704 ODO_FROM_DASH: 0 ZeroGen2
    SG_ ODO2_0 : 7|8@0+ (1,0) [0|1] "" Vector__XXX
    SG_ ODO2_1 : 15|8@0+ (1,0) [0|1] "" Vector__XXX
    SG_ ODO2_2 : 23|8@0+ (1,0) [0|1] "" Vector__XXX
+   SG_ test_odo3 : 0|24@1+ (0.1,0) [0|1] "" Vector__XXX
 
 BO_ 517 CONTROLLER_DRIVE_CONTROL: 0 ZeroGen2
 
@@ -100,8 +101,6 @@ BO_ 904 BMS_CELL_VOLTAGE: 0 ZeroGen2
    SG_ VBatt4 : 39|8@0+ (1,0) [0|1] "" Vector__XXX
    SG_ VBatt5 : 47|8@0+ (1,0) [0|1] "" Vector__XXX
 
-BO_ 905 BMS1_CELL_VOLTAGE: 0 ZeroGen2
-
 BO_ 1032 BMS_PACK_ACTIVE_DATA: 0 ZeroGen2
    SG_ batteryAmps : 39|16@0+ (1,0) [0|1] "" Vector__XXX
    SG_ temperatureMax : 15|8@0+ (1,0) [0|1] "" ZeroGen2
@@ -139,19 +138,24 @@ BO_ 1344 DASH_STATUS3: 0 ZeroGen2
    SG_ LifeWhPerKm6 : 55|8@0+ (1,0) [0|1] "" Vector__XXX
    SG_ LifeWhPerKm7 : 63|8@0+ (1,0) [0|1] "" Vector__XXX
 
-BO_ 402 BMS_PACK_STATUS2: 0 ZeroGen2
+BO_ 2147484050 BMS_PACK_STATUS2: 0 ZeroGen2
 
-BO_ 518 BMS_PACK_STATUS3: 0 ZeroGen2
+BO_ 2147484166 BMS_PACK_STATUS3: 0 ZeroGen2
    SG_ ChargeVoltage3 : 31|8@0+ (1,0) [0|1] "" Vector__XXX
    SG_ ChargeVoltage4 : 39|8@0+ (1,0) [0|1] "" Vector__XXX
    SG_ ChargeVoltage5 : 47|8@0+ (1,0) [0|1] "" Vector__XXX
 
-BO_ 641 MOTOR: 7 ZeroGen2
+BO_ 2147484289 MOTOR: 7 ZeroGen2
    SG_ Motor0 : 7|8@0+ (1,0) [0|1] "" Vector__XXX
    SG_ Motor1 : 15|8@0+ (1,0) [0|1] "" Vector__XXX
    SG_ ThrottlePosition4 : 39|8@0+ (1,0) [0|1] "" Vector__XXX
    SG_ ThrottlePosition5 : 47|8@0+ (1,0) [0|1] "" Vector__XXX
    SG_ MotorTemp : 55|8@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 704 test_odo: 0 ZeroGen2
+
+BO_ 518 BMS_CHARGER: 0 ZeroGen2
+   SG_ ChargerVoltage : 24|24@1+ (1,0) [0|1] "" Vector__XXX
 
 BA_DEF_ BO_ "GenMsgBackgroundColor" STRING ;
 BA_DEF_ BO_ "GenMsgForegroundColor" STRING ;
@@ -167,8 +171,9 @@ BA_DEF_ BO_ "matchingcriteria" INT 0 0;
 BA_DEF_ BO_ "filterlabeling" INT 0 0;
 BA_DEF_ BO_ "matchingcriteria" INT 0 0;
 BA_DEF_ BO_ "filterlabeling" INT 0 0;
-BA_ "GenMsgForegroundColor" BO_ 402 "#000000";
-BA_ "GenMsgForegroundColor" BO_ 641 "#000000";
+BA_ "GenMsgForegroundColor" BO_ 2147484050 "#000000";
+BA_ "GenMsgForegroundColor" BO_ 2147484289 "#000000";
+BA_ "GenMsgForegroundColor" BO_ 704 "#ff0000";
 BA_DEF_DEF_ "GenMsgBackgroundColor" "#ffffff";
 BA_DEF_DEF_ "GenMsgForegroundColor" "#000000";
 BA_DEF_DEF_ "matchingcriteria" 0;
@@ -214,10 +219,10 @@ CM_ SG_ 1344 TripPerKm4 "[4]_*_0.01_+_[5]_*_2.56";
 CM_ SG_ 1344 TripPerKm5 "[4]_*_0.01_+_[5]_*_2.56";
 CM_ SG_ 1344 LifeWhPerKm6 "[6]_*_0.01_+_[7]_*_2.56";
 CM_ SG_ 1344 LifeWhPerKm7 "[6]_*_0.01_+_[7]_*_2.56";
-CM_ SG_ 518 ChargeVoltage3 "[3]_*_0.001_+_[4]_*_0.256_+_[5]_*_65.535_charger_voltage_in_Mv_divide_by_100_to_get_volts";
-CM_ SG_ 518 ChargeVoltage4 "[3]_*_0.001_+_[4]_*_0.256_+_[5]_*_65.535_charger_voltage_in_Mv_divide_by_100_to_get_volts";
-CM_ SG_ 518 ChargeVoltage5 "[3]_*_0.001_+_[4]_*_0.256_+_[5]_*_65.535_charger_voltage_in_Mv_divide_by_100_to_get_volts";
-CM_ SG_ 641 Motor0 "[0]_+_256_*_[1]";
-CM_ SG_ 641 Motor1 "[0]_+_256_*_[1]_same_as_0x0340_[4]_[5]";
-CM_ SG_ 641 ThrottlePosition4 "[4]_+_256_*_[5]";
-CM_ SG_ 641 ThrottlePosition5 "[4]_+_256_*_[5]";
+CM_ SG_ 2147484166 ChargeVoltage3 "[3]_*_0.001_+_[4]_*_0.256_+_[5]_*_65.535_charger_voltage_in_Mv_divide_by_100_to_get_volts";
+CM_ SG_ 2147484166 ChargeVoltage4 "[3]_*_0.001_+_[4]_*_0.256_+_[5]_*_65.535_charger_voltage_in_Mv_divide_by_100_to_get_volts";
+CM_ SG_ 2147484166 ChargeVoltage5 "[3]_*_0.001_+_[4]_*_0.256_+_[5]_*_65.535_charger_voltage_in_Mv_divide_by_100_to_get_volts";
+CM_ SG_ 2147484289 Motor0 "[0]_+_256_*_[1]";
+CM_ SG_ 2147484289 Motor1 "[0]_+_256_*_[1]_same_as_0x0340_[4]_[5]";
+CM_ SG_ 2147484289 ThrottlePosition4 "[4]_+_256_*_[5]";
+CM_ SG_ 2147484289 ThrottlePosition5 "[4]_+_256_*_[5]";
